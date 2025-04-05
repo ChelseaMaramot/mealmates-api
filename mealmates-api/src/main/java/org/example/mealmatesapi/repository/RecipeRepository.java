@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 // interface for performing db operations
 public interface RecipeRepository extends JpaRepository<Recipe, Long>{
+    Recipe findByTitleContaining(String title);
 
 }
