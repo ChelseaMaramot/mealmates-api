@@ -54,6 +54,6 @@ public class LikeService {
     }
 
     public Long getNumberOfLikes(Long recipeId){
-        return likeRepository.countByRecipe(recipeId);
+        return likeRepository.countByRecipeId(recipeId);
     }
 }

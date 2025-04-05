@@ -17,11 +17,11 @@ public class UserService {
     }
 
     private UserDTO mapToDTO(User user){
-        return new UserDTO(user.getUsername(), user.getEmail());
+        return new UserDTO(user.getUsername(), user.getPassword(),user.getEmail());
     }
 
     private User mapToEntity(UserDTO userDTO){
-        return new User(userDTO.getUsername(), userDTO.getEmail());
+        return new User(userDTO.getUsername(),  userDTO.getPassword(), userDTO.getEmail());
     }
 
     public List<UserDTO> getAllUsers(){
