@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>  <!-- You can keep this version if you want to use Spring Boot 2.x -->
+        <version>3.0.0</version> <!-- Or any Spring Boot 3.x version -->
         <relativePath/>
     </parent>
 
@@ -51,12 +51,12 @@
         </dependency>
     </dependencies>
 
-    <!-- Spring Boot Maven Plugin to build and run the app -->
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.0.0</version> <!-- Match this version to your Spring Boot version -->
             </plugin>
         </plugins>
     </build>

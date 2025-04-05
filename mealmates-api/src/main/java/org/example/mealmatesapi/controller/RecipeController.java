@@ -20,8 +20,8 @@ public class RecipeController {
 
 
     // Get recipes by name
-    @GetMapping("/{name}")
-    public ResponseEntity<List<RecipeDTO>> getRecipesByName(@PathVariable String name){
+    @GetMapping
+    public ResponseEntity<List<RecipeDTO>> getRecipesByName(@RequestParam String name){
         List<RecipeDTO> recipes = recipeService.getRecipesByTitle(name);
         return ResponseEntity.ok(recipes);
     }

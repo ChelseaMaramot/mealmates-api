@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.example.mealmatesapi.MealmatesApiApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.554 s - in org.example.mealmatesapi.MealmatesApiApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.58 s - in org.example.mealmatesapi.MealmatesApiApplicationTests
