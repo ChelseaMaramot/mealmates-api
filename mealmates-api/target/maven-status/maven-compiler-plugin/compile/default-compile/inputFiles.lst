@@ -1,0 +1,16 @@
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/dto/UserDTO.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/repository/RecipeRepository.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/dto/LikeDTO.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/repository/UserRepository.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/model/User.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/controller/LikeController.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/model/Recipe.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/service/UserService.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/controller/UserController.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/model/Like.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/service/LikeService.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/MealmatesApiApplication.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/controller/RecipeController.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/service/RecipeService.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/repository/LikeRepository.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/dto/RecipeDTO.java

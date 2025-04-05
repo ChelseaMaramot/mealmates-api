@@ -90,12 +90,7 @@ public class Recipe {
     public void decrementLikes(){
         this.likes--;
     }
-    public void incrementLikes(){
-        this.likes++;
-    }
-    public void decrementLikes(){
-        this.likes--;
-    }
+
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
