@@ -3,7 +3,9 @@ package org.example.mealmatesapi.controller;
 import org.apache.coyote.Response;
 import org.example.mealmatesapi.dto.RecipeDTO;
 import org.example.mealmatesapi.model.Recipe;
+import org.example.mealmatesapi.repository.RecipeRepository;
 import org.example.mealmatesapi.service.RecipeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +15,9 @@ import java.util.List;
 @RequestMapping("/api/recipes")
 public class RecipeController {
 
+    @Autowired
     private RecipeService recipeService;
+
 
     // Get recipes by name
     @GetMapping("/{name}")
