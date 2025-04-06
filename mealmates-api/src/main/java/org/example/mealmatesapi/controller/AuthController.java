@@ -5,14 +5,13 @@ import org.example.mealmatesapi.model.User;
 import org.example.mealmatesapi.repository.UserRepository;
 import org.example.mealmatesapi.util.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -40,13 +39,17 @@ public class AuthController {
         if (userRepository.existsByUsername(user.getUsername())) {
             return "Error: Username is already taken!";
         }
+
+        System.out.println("Creating a new user");
+        System.out.println(user);
         // Create new user's account
         User newUser = new User(
-                null,
                 user.getUsername(),
-                encoder.encode(user.getPassword())
+                encoder.encode(user.getPassword()),
+                user.getEmail()
         );
         userRepository.save(newUser);
         return "User registered successfully!";
     }
+
 }

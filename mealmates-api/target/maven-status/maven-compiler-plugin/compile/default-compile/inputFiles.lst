@@ -1,4 +1,5 @@
 /Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/MealmatesApiApplication.java
+/Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/config/CorsConfig.java
 /Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/controller/AuthController.java
 /Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/controller/LikeController.java
 /Users/chelseamaramot/Desktop/mealmates-api/mealmates-api/src/main/java/org/example/mealmatesapi/controller/RecipeController.java
