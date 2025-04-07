@@ -18,14 +18,23 @@ import java.util.LinkedHashMap;
 @RestController
 @RequestMapping("api/user")
 public class UserController {
+    @Autowired
     private UserService userService;
     private JwtUtils jwtUtils;
 
     @Autowired
     private RefreshTokenService refreshTokenService;
 
+    @GetMapping
+    public ResponseEntity<UserDTO> getUser() {
+
+        UserDTO currentUser = userService.getCurrentUser();
+        System.out.println("user: " + currentUser);
+        return ResponseEntity.ok(currentUser);
+    }
+
     // get user by id
-    @GetMapping("/api/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
         UserDTO user = userService.getUserById(id);
         return ResponseEntity.ok(user);

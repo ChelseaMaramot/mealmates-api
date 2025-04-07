@@ -3,6 +3,9 @@ package org.example.mealmatesapi.service;
 import org.example.mealmatesapi.dto.UserDTO;
 import org.example.mealmatesapi.model.User;
 import org.example.mealmatesapi.repository.UserRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +25,17 @@ public class UserService {
 
     private User mapToEntity(UserDTO userDTO){
         return new User(userDTO.getUsername(),  userDTO.getPassword(), userDTO.getEmail());
+    }
+
+    public UserDTO getCurrentUser(){
+        System.out.println("Getting current user");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+        System.out.print("user details: "+userDetails);
+        String email = userDetails.getUsername();
+        System.out.println("current email "+ email);
+        return mapToDTO(userRepository.findByEmail(email));
     }
 
     public List<UserDTO> getAllUsers(){
