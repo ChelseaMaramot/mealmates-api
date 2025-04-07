@@ -99,7 +99,7 @@ public class AuthController {
     }
     @PostMapping("/refreshtoken")
     public ResponseEntity<?> refreshtoken(@Valid @RequestBody TokenRefreshRequest request) {
-        String requestRefreshToken = request.getRefreshToken();
+        String requestRefreshToken = request.getRefresh();
 
         return refreshTokenService.findByToken(requestRefreshToken)
                 .map(refreshTokenService::verifyExpiration)

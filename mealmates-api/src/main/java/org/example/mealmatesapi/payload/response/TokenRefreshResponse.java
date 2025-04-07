@@ -11,32 +11,26 @@ public class TokenRefreshResponse {
         this.refreshToken = refreshToken;
     }
 
-    // Getter for accessToken
     public String getAccessToken() {
         return accessToken;
     }
 
-    // Setter for accessToken
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
     }
 
-    // Getter for refreshToken
     public String getRefreshToken() {
         return refreshToken;
     }
 
-    // Setter for refreshToken
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
     }
 
-    // Getter for tokenType
     public String getTokenType() {
         return tokenType;
     }
 
-    // Setter for tokenType
     public void setTokenType(String tokenType) {
         this.tokenType = tokenType;
     }

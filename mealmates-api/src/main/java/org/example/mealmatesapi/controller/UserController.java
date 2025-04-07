@@ -60,9 +60,10 @@ public class UserController {
 
     @PostMapping("/logout")
     public ResponseEntity<?> logoutUser(@RequestBody TokenRefreshRequest request) {
-        String refreshToken = request.getRefreshToken();
+        String refreshToken = request.getRefresh();
 
         System.out.println("logging out");
+        System.out.println(refreshToken);
 
         return refreshTokenService.findByToken(refreshToken)
                 .map(refreshTokenService::verifyExpiration)

@@ -5,13 +5,13 @@ import jakarta.validation.constraints.NotBlank;
 
 public class TokenRefreshRequest {
     @NotBlank
-    private String refreshToken;
+    private String refresh;
 
-    public String getRefreshToken() {
-        return refreshToken;
+    public String getRefresh() {
+        return refresh;
     }
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
+    public void setRefresh(String refreshToken) {
+        this.refresh = refreshToken;
     }
 }
