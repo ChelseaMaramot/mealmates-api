@@ -48,9 +48,14 @@ public class AuthController {
         System.out.println("Done authenticating user!");
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
+        System.out.println("userDetails:" + userDetails);
+
         // user details takes in email as its username
         String accessToken = jwtUtils.generateToken(userDetails.getUsername());
-        RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
+
+        // user body does not contain username so get full user info from email
+        User loggedUser = userRepository.findByEmail(user.getEmail());
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(loggedUser);
 
         LinkedHashMap<String, String> tokens = new LinkedHashMap<>();
         tokens.put("access", accessToken);
