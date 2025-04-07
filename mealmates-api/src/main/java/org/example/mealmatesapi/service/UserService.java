@@ -40,7 +40,9 @@ public class UserService {
 
     }
 
-    public UserDTO createUser(UserDTO userDTO){
+    public UserDTO createUser(UserDTO userDTO)
+    {
+        System.out.println("----------CREATING USER IN SERVICE--------");
         return mapToDTO(userRepository.save(mapToEntity(userDTO)));
     }
 
@@ -52,5 +54,6 @@ public class UserService {
         }
 
     }
+
 
 }

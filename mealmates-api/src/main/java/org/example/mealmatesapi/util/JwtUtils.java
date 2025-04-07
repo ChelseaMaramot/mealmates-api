@@ -14,6 +14,8 @@ public class JwtUtils {
     private String jwtSecret;
     @Value("${jwt.expiration}")
     private int jwtExpirationMs;
+    @Value("${jwt.refreshExpiration}")
+    private long jwtRefreshExpirationMs;
     private SecretKey key;
     // Initializes the key after the class is instantiated and the jwtSecret is injected,
     // preventing the repeated creation of the key and enhancing performance
@@ -23,6 +25,7 @@ public class JwtUtils {
     }
     // Generate JWT token
     public String generateToken(String username) {
+        System.out.println("GENERATING ACCESS TOKENS");
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
@@ -30,6 +33,18 @@ public class JwtUtils {
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
+
+    public String generateRefreshToken(String username){
+        System.out.println("GENERATING REFRESH TOKENS");
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date((new Date()).getTime() + jwtRefreshExpirationMs))
+                .signWith(key, SignatureAlgorithm.HS256)
+                .compact();
+    }
+
+
     // Get username from JWT token
     public String getUsernameFromToken(String token) {
         return Jwts.parserBuilder()
