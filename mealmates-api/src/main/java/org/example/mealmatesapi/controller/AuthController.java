@@ -39,17 +39,18 @@ public class AuthController {
     RefreshTokenService refreshTokenService;
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@RequestBody User user) {
-        System.out.println("Authenticating user...");
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        user.getUsername(),
+                        user.getEmail(),
                         user.getPassword()
                 )
         );
+        System.out.println("Done authenticating user!");
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+        // user details takes in email as its username
         String accessToken = jwtUtils.generateToken(userDetails.getUsername());
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
-
 
         LinkedHashMap<String, String> tokens = new LinkedHashMap<>();
         tokens.put("access", accessToken);
@@ -58,6 +59,9 @@ public class AuthController {
         LinkedHashMap<String, Object> response = new LinkedHashMap<>();
         response.put("email", user.getEmail());
         response.put("tokens", tokens);
+
+        System.out.println("Response");
+        System.out.println(response);
 
         return ResponseEntity.ok(response);
     }
@@ -80,7 +84,7 @@ public class AuthController {
         );
         userRepository.save(newUser);
 
-        String accessToken = jwtUtils.generateToken(newUser.getUsername());
+        String accessToken = jwtUtils.generateToken(newUser.getEmail());
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(newUser);
 
         UserResponse userResponse = new UserResponse(newUser.getId(), newUser.getUsername(), newUser.getEmail());
@@ -105,7 +109,7 @@ public class AuthController {
                 .map(refreshTokenService::verifyExpiration)
                 .map(RefreshToken::getUser)
                 .map(user -> {
-                    String token = jwtUtils.generateToken(user.getUsername());
+                    String token = jwtUtils.generateToken(user.getEmail());
                     return ResponseEntity.ok(new TokenRefreshResponse(token, requestRefreshToken));
                 })
                 .orElseThrow(() -> new TokenRefreshException(requestRefreshToken,

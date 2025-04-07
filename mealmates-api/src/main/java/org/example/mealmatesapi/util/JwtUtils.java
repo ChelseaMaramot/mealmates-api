@@ -24,20 +24,20 @@ public class JwtUtils {
         this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
     // Generate JWT token
-    public String generateToken(String username) {
+    public String generateToken(String email) {
         System.out.println("GENERATING ACCESS TOKENS");
         return Jwts.builder()
-                .setSubject(username)
+                .setSubject(email)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
 
-    public String generateRefreshToken(String username){
+    public String generateRefreshToken(String email){
         System.out.println("GENERATING REFRESH TOKENS");
         return Jwts.builder()
-                .setSubject(username)
+                .setSubject(email)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtRefreshExpirationMs))
                 .signWith(key, SignatureAlgorithm.HS256)
@@ -46,13 +46,27 @@ public class JwtUtils {
 
 
     // Get username from JWT token
-    public String getUsernameFromToken(String token) {
+    // public String getUsernameFromToken(String token) {
+    //     return Jwts.parserBuilder()
+    //             .setSigningKey(key).build()
+    //             .parseClaimsJws()
+    //             .getBody()
+    //             .getSubject();
+    // }
+
+
+    public String getEmailFromToken(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(key).build()
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
     }
+
+
+
+
+
     // Validate JWT token
     public boolean validateJwtToken(String token) {
         try {
