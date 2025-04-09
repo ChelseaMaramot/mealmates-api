@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/recipes")
+@RequestMapping("/api/recipe")
 public class RecipeController {
 
     @Autowired
@@ -21,8 +21,10 @@ public class RecipeController {
 
     // Get recipes by name
     @GetMapping
-    public ResponseEntity<List<RecipeDTO>> getRecipesByName(@RequestParam String name){
-        List<RecipeDTO> recipes = recipeService.getRecipesByTitle(name);
+    public ResponseEntity<List<RecipeDTO>> getRecipesByName(@RequestParam String author_username){
+        System.out.println("Getting recipe for "+author_username);
+        List<RecipeDTO> recipes = recipeService.getRecipesByAuthor(author_username);
+        System.out.println(recipes);
         return ResponseEntity.ok(recipes);
     }
 

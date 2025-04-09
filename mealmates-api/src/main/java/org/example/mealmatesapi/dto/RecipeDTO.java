@@ -3,81 +3,126 @@ package org.example.mealmatesapi.dto;
 import java.util.List;
 
 public class RecipeDTO {
+
     private Long id;
-    private String author;
+    private String authorUsername;
+    private String category;
     private String title;
-    private String desc;
+    private String description;
+    private String picture;
     private Integer likes;
-    private List<String> ingredients;
+    private Integer bookmarks;
     private Integer cookingTime;
+    private List<String> ingredients;
     private List<String> instructions;
 
+    public RecipeDTO() {
+    }
 
-
-    public RecipeDTO(String author, String title, String desc, Integer likes,  List<String> ingredients, Integer cookingTime, List<String> instructions){
-        this.author = author;
-        this.desc = desc;
+    public RecipeDTO(Long id, String authorUsername, String category, String title, String description, String picture,
+                     Integer likes, Integer bookmarks, Integer cookingTime,
+                     List<String> ingredients, List<String> instructions) {
+        this.id = id;
+        this.authorUsername = authorUsername;
+        this.category = category;
         this.title = title;
+        this.description = description;
+        this.picture = picture;
         this.likes = likes;
-        this.ingredients = ingredients;
+        this.bookmarks = bookmarks;
         this.cookingTime = cookingTime;
+        this.ingredients = ingredients;
         this.instructions = instructions;
     }
 
-    public Long getId(){
+    // Getters
+
+    public Long getId() {
         return id;
     }
 
-    public String getAuthor(){
-        return this.author;
+    public String getAuthorUsername() {
+        return authorUsername;
     }
 
-    public String getTitle(){
-        return this.title;
+    public String getCategory() {
+        return category;
     }
 
-    public String getDesc(){
-        return this.desc;
+    public String getTitle() {
+        return title;
     }
 
-    public Integer getLikes(){
+    public String getDescription() {
+        return description;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public Integer getLikes() {
         return likes;
     }
 
-    public List<String> getIngredients() {
-        return ingredients;
+    public Integer getBookmarks() {
+        return bookmarks;
     }
 
     public Integer getCookingTime() {
         return cookingTime;
     }
 
+    public List<String> getIngredients() {
+        return ingredients;
+    }
+
     public List<String> getInstructions() {
         return instructions;
     }
 
-    public void setAuthor(String author){
-        this.author = author;
+    // Setters
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setTitle(String title){
+    public void setAuthorUsername(String authorUsername) {
+        this.authorUsername = authorUsername;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setDesc(String desc){
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setLikes(Integer likes){
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public void setLikes(Integer likes) {
         this.likes = likes;
+    }
+
+    public void setBookmarks(Integer bookmarks) {
+        this.bookmarks = bookmarks;
+    }
+
+    public void setCookingTime(Integer cookingTime) {
+        this.cookingTime = cookingTime;
     }
 
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
-    public void setCookingTime(Integer cookingTime) {
-        this.cookingTime = cookingTime;
-    }
+
     public void setInstructions(List<String> instructions) {
         this.instructions = instructions;
     }
