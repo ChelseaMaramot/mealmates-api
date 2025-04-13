@@ -2,6 +2,7 @@ package org.example.mealmatesapi.model;
 
 
 import jakarta.persistence.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -14,38 +15,42 @@ public class Recipe {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
     private User author;
 
-    @Column(nullable = false)
-    private String category_name;
-
-    private String picture;
+    @Column(nullable = true)
+    private String  picture;
 
     @Column(nullable = false)
     private String title;
 
     @Column(nullable = false, length = 5000)
-    private String desc;
+    private String description;
 
-    private Integer cook_time; //in minutes
+    private String cook_time; //in minutes
 
-    @ElementCollection
-    private List<String> ingredients;
-
-    private List<String> procedure;
-
-    @Column(nullable = false)
-    private Integer total_number_of_likes;
+    @Column(name = "ingredients")
+    private String ingredients;
+    private String procedure;
 
     @Column(nullable = false)
-    private Integer total_number_of_bookmarks;
+    private Integer total_number_of_likes = 0;
 
-    public Recipe(User author, String category_name, String title, String desc, List<String> ingredients, List<String> procedure, Integer cook_time) {
+    @Column(nullable = false)
+    private Integer total_number_of_bookmarks = 0;
+    
+    public Recipe(){};
+
+    public Recipe(User author, Category category, String picture, String title, String description, String ingredients, String procedure, String cook_time) {
         this.author = author;
-        this.category_name = category_name;
+        this.category = category;
+        this.picture = picture;
         this.title = title;
-        this.desc = desc;
+        this.description = description;
         this.ingredients = ingredients;
         this.procedure = procedure;
         this.cook_time = cook_time;
@@ -71,12 +76,12 @@ public class Recipe {
         this.author = author;
     }
 
-    public String getCategory_name() {
-        return category_name;
+    public Category getCategory() {
+        return this.category;
     }
 
-    public void setCategory_name(String category_name) {
-        this.category_name = category_name;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getPicture() {
@@ -95,35 +100,35 @@ public class Recipe {
         this.title = title;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Integer getCookTime() {
+    public String getCookTime() {
         return cook_time;
     }
 
-    public void setCookTime(Integer cook_time) {
+    public void setCookTime(String cook_time) {
         this.cook_time = cook_time;
     }
 
-    public List<String> getIngredients() {
+    public String getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<String> getProcedure() {
+    public String getProcedure() {
         return procedure;
     }
 
-    public void setProcedure(List<String> procedure) {
+    public void setProcedure(String procedure) {
         this.procedure = procedure;
     }
 

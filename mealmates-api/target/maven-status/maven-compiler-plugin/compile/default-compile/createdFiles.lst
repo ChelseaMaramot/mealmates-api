@@ -3,6 +3,7 @@ org/example/mealmatesapi/payload/response/TokenRefreshResponse.class
 org/example/mealmatesapi/model/Recipe.class
 org/example/mealmatesapi/service/UserService.class
 org/example/mealmatesapi/exception/TokenRefreshException/TokenRefreshException.class
+org/example/mealmatesapi/repository/CategoryRepository.class
 org/example/mealmatesapi/controller/AuthController.class
 org/example/mealmatesapi/repository/RecipeRepository.class
 org/example/mealmatesapi/controller/RecipeController.class
@@ -13,11 +14,13 @@ org/example/mealmatesapi/service/TokenBlacklistService.class
 org/example/mealmatesapi/controller/UserController.class
 org/example/mealmatesapi/service/CustomUserDetailsService.class
 org/example/mealmatesapi/MealmatesApiApplication.class
+org/example/mealmatesapi/dto/CategoryDTO.class
 org/example/mealmatesapi/repository/LikeRepository.class
 org/example/mealmatesapi/dto/LikeDTO.class
 org/example/mealmatesapi/repository/UserRepository.class
 org/example/mealmatesapi/repository/RefreshTokenRepository.class
 org/example/mealmatesapi/service/RefreshTokenService.class
+org/example/mealmatesapi/model/Category.class
 org/example/mealmatesapi/payload/response/UserResponse.class
 org/example/mealmatesapi/model/Like.class
 org/example/mealmatesapi/dto/UserDTO.class
@@ -26,6 +29,7 @@ org/example/mealmatesapi/model/User.class
 org/example/mealmatesapi/controller/TestController.class
 org/example/mealmatesapi/controller/LikeController.class
 org/example/mealmatesapi/util/WebSecurityConfig.class
+org/example/mealmatesapi/payload/request/RecipeCreateRequest.class
 org/example/mealmatesapi/model/RefreshToken.class
 org/example/mealmatesapi/service/LikeService.class
 org/example/mealmatesapi/util/AuthTokenFilter.class

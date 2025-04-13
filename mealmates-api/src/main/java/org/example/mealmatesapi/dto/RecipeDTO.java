@@ -1,39 +1,67 @@
 package org.example.mealmatesapi.dto;
 
+import org.example.mealmatesapi.model.Category;
+import org.example.mealmatesapi.model.Recipe;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.List;
 
 public class RecipeDTO {
 
     private Long id;
-    private String authorUsername;
-    private String category;
+    private CategoryDTO category;
+    private Long author;
     private String title;
     private String description;
     private String picture;
     private Integer likes;
     private Integer bookmarks;
-    private Integer cookingTime;
-    private List<String> ingredients;
-    private List<String> instructions;
+    private String cookingTime;
+    private String ingredients;
+    private String instructions;
 
     public RecipeDTO() {
     }
 
-    public RecipeDTO(Long id, String authorUsername, String category, String title, String description, String picture,
-                     Integer likes, Integer bookmarks, Integer cookingTime,
-                     List<String> ingredients, List<String> instructions) {
+    public RecipeDTO(Long id, Long author, CategoryDTO category, String title, String description, String picture,
+                     Integer likes, Integer bookmarks, String cookingTime,
+                     String ingredients, String instructions) {
         this.id = id;
-        this.authorUsername = authorUsername;
+        this.author = author;
         this.category = category;
         this.title = title;
         this.description = description;
         this.picture = picture;
-        this.likes = likes;
-        this.bookmarks = bookmarks;
+        this.likes = 0;
+        this.bookmarks = 0;
         this.cookingTime = cookingTime;
         this.ingredients = ingredients;
         this.instructions = instructions;
     }
+
+//    public static RecipeDTO from(Recipe recipe) {
+//        RecipeDTO dto = new RecipeDTO();
+//
+//        dto.setId(recipe.getId());
+//        dto.setTitle(recipe.getTitle());
+//        dto.setDescription(recipe.getDescription());
+//        dto.setCookingTime(recipe.getCookTime());
+//        dto.setIngredients(recipe.getIngredients());
+//        dto.setInstructions(recipe.getProcedure());
+//        dto.setPicture(recipe.getPicture());
+//        dto.setAuthorId(recipe.getId());
+//
+//
+//
+//        if (recipe.getCategory() != null) {
+//            CategoryDTO categoryDTO = new CategoryDTO();
+//            categoryDTO.setName(recipe.getCategory().getName());
+//            categoryDTO.setId(recipe.getCategory().getId());
+//            dto.setCategory(categoryDTO);
+//        }
+//        return dto;
+//    }
+
 
     // Getters
 
@@ -41,12 +69,12 @@ public class RecipeDTO {
         return id;
     }
 
-    public String getAuthorUsername() {
-        return authorUsername;
+    public Long getAuthorId() {
+        return author;
     }
 
-    public String getCategory() {
-        return category;
+    public CategoryDTO getCategory() {
+        return this.category;
     }
 
     public String getTitle() {
@@ -69,29 +97,28 @@ public class RecipeDTO {
         return bookmarks;
     }
 
-    public Integer getCookingTime() {
+    public String getCookingTime() {
         return cookingTime;
     }
 
-    public List<String> getIngredients() {
+    public String getIngredients() {
         return ingredients;
     }
 
-    public List<String> getInstructions() {
+    public String getInstructions() {
         return instructions;
     }
 
     // Setters
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setAuthorUsername(String authorUsername) {
-        this.authorUsername = authorUsername;
+    public void setAuthorId(long authorId) {
+        this.author = authorId;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(CategoryDTO category) {
         this.category = category;
     }
 
@@ -103,7 +130,7 @@ public class RecipeDTO {
         this.description = description;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(String  picture) {
         this.picture = picture;
     }
 
@@ -115,15 +142,15 @@ public class RecipeDTO {
         this.bookmarks = bookmarks;
     }
 
-    public void setCookingTime(Integer cookingTime) {
+    public void setCookingTime(String cookingTime) {
         this.cookingTime = cookingTime;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
 
-    public void setInstructions(List<String> instructions) {
+    public void setInstructions(String instructions) {
         this.instructions = instructions;
     }
 }
