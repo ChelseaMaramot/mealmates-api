@@ -37,15 +37,14 @@ public class RecipeController {
             @RequestParam(value="author_username", required = false) String authorUsername,
             @RequestParam(value="category_name", required = false) String categoryName) {
 
-        System.out.println("Getting recipe for "+authorUsername);
         List<RecipeDTO> recipes = recipeService.getRecipesByAuthor(authorUsername);
-        System.out.println(recipes);
         return ResponseEntity.ok(recipes);
     }
 
     // Get recipes by id
     @GetMapping("/{id}")
     public ResponseEntity<RecipeDTO> getRecipeById(@PathVariable Long id){
+        System.out.println("getting recipe by id: "+id);
         RecipeDTO recipe = recipeService.getRecipeById(id);
         return ResponseEntity.ok(recipe);
     }

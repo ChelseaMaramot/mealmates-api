@@ -18,14 +18,14 @@ public class RecipeDTO {
     private Integer bookmarks;
     private String cookingTime;
     private String ingredients;
-    private String instructions;
+    private String procedure;
 
     public RecipeDTO() {
     }
 
     public RecipeDTO(Long id, Long author, CategoryDTO category, String title, String description, String picture,
                      Integer likes, Integer bookmarks, String cookingTime,
-                     String ingredients, String instructions) {
+                     String ingredients, String procedure) {
         this.id = id;
         this.author = author;
         this.category = category;
@@ -36,7 +36,7 @@ public class RecipeDTO {
         this.bookmarks = 0;
         this.cookingTime = cookingTime;
         this.ingredients = ingredients;
-        this.instructions = instructions;
+        this.procedure = procedure;
     }
 
 //    public static RecipeDTO from(Recipe recipe) {
@@ -47,7 +47,7 @@ public class RecipeDTO {
 //        dto.setDescription(recipe.getDescription());
 //        dto.setCookingTime(recipe.getCookTime());
 //        dto.setIngredients(recipe.getIngredients());
-//        dto.setInstructions(recipe.getProcedure());
+//        dto.setProcedure(recipe.getProcedure());
 //        dto.setPicture(recipe.getPicture());
 //        dto.setAuthorId(recipe.getId());
 //
@@ -105,8 +105,8 @@ public class RecipeDTO {
         return ingredients;
     }
 
-    public String getInstructions() {
-        return instructions;
+    public String getProcedure() {
+        return procedure;
     }
 
     // Setters
@@ -150,7 +150,7 @@ public class RecipeDTO {
         this.ingredients = ingredients;
     }
 
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
+    public void setProcedure(String procedure) {
+        this.procedure = procedure;
     }
 }

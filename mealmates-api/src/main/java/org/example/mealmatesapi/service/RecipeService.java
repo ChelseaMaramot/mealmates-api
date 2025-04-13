@@ -66,7 +66,7 @@ public class RecipeService {
                 recipeDTO.getTitle(),
                 recipeDTO.getDescription(),
                 recipeDTO.getIngredients(),
-                recipeDTO.getInstructions(),
+                recipeDTO.getProcedure(),
                 recipeDTO.getCookingTime()
         );
     }
@@ -163,7 +163,7 @@ public class RecipeService {
         if (existingRecipeOpt.isPresent()){
             Recipe existingRecipe = existingRecipeOpt.get();
             existingRecipe.setTitle(recipeDTO.getTitle());
-            existingRecipe.setProcedure(recipeDTO.getInstructions());
+            existingRecipe.setProcedure(recipeDTO.getProcedure());
             existingRecipe.setIngredients(recipeDTO.getIngredients());
             existingRecipe.setCookTime(recipeDTO.getCookingTime());
 
